@@ -4,9 +4,29 @@
   "description": "Tiny library for determining the type",
   "main": "index.js",
   "scripts": {
-    "test": "exit 0"
+    "test": "jest && npm run lint && npm run size",
+    "lint": "eslint *.js",
+    "size": "size-limit"
   },
-  "keywords": ["type", "typeof", "determining"],
+  "keywords": [
+    "type",
+    "typeof",
+    "determining"
+  ],
   "author": "Sofi Valitova <ariarzer@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.4.0",
+    "jest": "^23.5.0",
+    "size-limit": "^0.19.2"
+  },
+  "eslintConfig": {
+    "extends": "airbnb-base"
+  },
+  "size-limit": [
+    {
+      "path": "index.js",
+      "limit": "100B"
+    }
+  ]
 }
