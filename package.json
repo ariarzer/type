@@ -1,0 +1,12 @@
+{
+  "name": "type",
+  "version": "0.1.0",
+  "description": "Tiny library for determining the type",
+  "main": "index.js",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "keywords": ["type", "typeof", "determining"],
+  "author": "Sofi Valitova <ariarzer@gmail.com>",
+  "license": "MIT"
+}
