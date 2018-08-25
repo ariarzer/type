@@ -1,8 +1,6 @@
 const Type = require('../../index.js');
 
-if (Type.create) {
-  const type = Type.create('all');
-}
+const type = Type.create('all');
 
 function MyObject() {
   this.prop = -1;
@@ -32,7 +30,7 @@ const cases = [
 ];
 
 cases.forEach(({ name, value }) => {
-  test.skip(`for "${name}"`, () => {
+  test(`for "${name}"`, () => {
     expect(type(value)).toBe(name);
   });
 });

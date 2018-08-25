@@ -1,8 +1,6 @@
 const Type = require('../../index.js');
 
-if (Type.create) {
-  const type = Type.create('abcd');
-}
+const type = Type.create('abcd');
 
 const errorMessage = 'Wrong mode';
 
@@ -34,7 +32,7 @@ const cases = [
 ];
 
 cases.forEach((item) => {
-  test.skip('for wrong mode', () => {
+  test('for wrong mode', () => {
     expect(() => type(item)).toThrowError(errorMessage);
   });
 });
