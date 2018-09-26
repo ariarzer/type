@@ -1,4 +1,4 @@
-const validate = require('./src/validate.js');
+const validate = require('./src/validate/validate.js');
 
 function type(mode, a) {
   validate(mode);

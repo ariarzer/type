@@ -13,7 +13,7 @@ function validate(mode) {
   });
 
   if (flag) {
-    throw new Error('Wrong mode');
+    throw new Error('Wrong mode! Possible mode is a `all` or `normal`');
   }
 
   return 0;

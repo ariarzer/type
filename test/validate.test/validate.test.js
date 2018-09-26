@@ -1,14 +1,16 @@
-const validate = require('../../src/validate.js');
+const validate = require('../../src/validate/validate.js');
+
+const errMode = 'Wrong mode! Possible mode is a `all` or `normal`';
 
 const casesWrong = [
-  { value: 'abcd', errorMessage: 'Wrong mode' },
-  { value: [], errorMessage: 'Wrong mode' },
-  { value: {}, errorMessage: 'Wrong mode' },
+  { value: 'abcd', errorMessage: errMode},
+  { value: [], errorMessage: errMode },
+  { value: {}, errorMessage: errMode },
 ];
 
 casesWrong.forEach(({ value, errorMessage }) => {
   test(`for "${value}"`, () => {
-    expect(() => validate(value)).toThrowError(errorMessage);
+    expect(() => validate({ mode: value })).toThrowError(errorMessage);
   });
 });
 
