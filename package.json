@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest && npm run lint && npm run size",
-    "lint": "eslint *.js",
+    "lint": "eslint \"**/*.js\"",
     "size": "size-limit"
   },
   "keywords": [
@@ -25,6 +25,9 @@
   "eslintConfig": {
     "extends": "airbnb-base"
   },
+  "eslintIgnore": [
+    "test/**/*.js"
+  ],
   "size-limit": [
     {
       "path": "index.js",

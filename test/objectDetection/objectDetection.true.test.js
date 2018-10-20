@@ -28,7 +28,7 @@ const cases = [
 ];
 
 cases.forEach(({ name, value }) => {
-  test.skip(`for "${name}"`, () => {
+  test(`for "${name}"`, () => {
     expect(type(value, true)).toBe(name);
   });
 });
