@@ -7,11 +7,11 @@
 
 Tiny library for determining the type.
  
-Correctly handles arrays and `null`.
+Correctly handles arrays and `null` and can detection different objects for the name of the constructor.
 
 Everything works out of the box.
 
-__Size__: 42 B.
+__Size__: 68 B.
 
 ### Install
 
@@ -24,6 +24,14 @@ npm i ariarzer/type
 ```js
 const type = require('type');
 
-type(new Date()); //=> 'object'
 type([]); //=> 'array'
+type(new Date()); //=> 'object'
+```
+
+Also you can use the second argument `true` to detection objects.
+In this case the constructor name is returned in lowercase.
+
+```js
+type(new Date(), true); //=> 'date'
+type(new myObject(), true); //=> 'myobject'
 ```
