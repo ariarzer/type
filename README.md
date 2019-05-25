@@ -11,7 +11,7 @@ Correctly handles arrays and `null` and can detection different objects for the 
 
 Everything works out of the box.
 
-__Size__: 68 B.
+__Size__: 133 B.
 
 ### Install
 
@@ -70,7 +70,35 @@ const type = require('type');
 const myType = type.create({mode: 'all'});
 myType(new myObject()); //=> 'myobject'
 
-/* But, you can run that... */
+// But, you can run that... 
 type(new myObject(), true); //=> 'myobject';
-/* ...and get a similar result. */
+// ...and get a similar result. 
 ```
+
+#### Custom types:
+
+If you want to detect s custom type, for example, the days of the week, you can do this with use a config.
+
+```js
+// write a config..
+const week =  ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+const customTypes = week.map((item, index) => {
+  return {
+    name: item,
+    is: function (arg) {
+      return type(arg, true) === 'date' && arg.getDay() === index;
+    },
+  };
+});
+
+// ...create a custom function...
+const daysDetector = type.create(customTypes);
+
+// ..and use it
+daysDetector(new Date(2019, 4, 25)) //=> 'saturday'  (May 25 2019) 
+daysDetector(new Date(2019, 4, 26)) //=> 'sunday'    (May 26 2019) 
+daysDetector(new myObject()) //=> 'object'
+``` 
+
+You can use modes and custom types together.
